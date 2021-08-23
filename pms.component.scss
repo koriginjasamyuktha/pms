@@ -1,0 +1,140 @@
+@import "../../../assets/css/colors.scss";
+
+.mat-card-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin: 0;
+    padding: 10px;
+    border-top: 1px solid #C8C8D2;
+    background-color: #f1f1f1;
+    &:last-child {
+        margin: 0;
+        padding: 10px;
+    }
+    button {
+        font-size: 16px;
+        float: right;
+        &.mat-accent {
+            margin-right: 8px;
+        }
+    }
+}
+:host::ng-deep .mat-card-content {
+    height: calc(100vh - 200px);
+    overflow: auto;
+    margin-bottom: 0;
+    position: relative;
+    
+    .mat-form-field {
+        width: 100%;
+        label {
+            font-size: 14px;
+        }
+        .mat-form-field-flex {
+            background-color: rgb(0, 36, 189, 0.06);
+        }
+        &.calendar-control {
+            .mat-input-element {
+                width: 80%;
+            }
+            .dateTimeIcon {
+                float: right;
+                margin-top: -12px;
+                cursor: pointer;
+            }
+        }
+    }
+    .red {
+        color: $active-palette-red;
+    }
+    .mat-accordion {
+        .mat-expansion-panel {
+            &:last-of-type {
+                margin-bottom: 10px;
+            }
+            .line-details {
+                .block {
+                    .wrapper {
+                        background-color: #f8f8f8;
+                        &.dosage-details {
+                            background-color: #f6f9db;
+                            h4 {
+                                color: #b9a917;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .block {
+        overflow: hidden;
+        margin-bottom: 10px;
+        .wrapper {
+            background-color: $white-color;
+            padding: 15px 15px 0;
+            border: 1px solid #e1e1e1;
+            
+            h4 {
+                color: #7373e0;
+                font-size: 15px;
+                font-weight: bold;
+                border-bottom: 1px solid $heading-border-color;
+                padding: 0 0 10px;
+                margin-bottom: 10px;
+                display: flex;
+                justify-content: space-between;
+            }
+            ul {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+
+                li {
+                    display: flex;
+                    justify-content: space-between;
+                    &.col2 {
+                        .mat-form-field {
+                            width: 45%;
+                        }
+                    }
+                    &.col3 {
+                        .mat-form-field {
+                            width: 30%;
+                        }
+                    }
+                    &.col4 {
+                        .mat-form-field {
+                            width: 23%;
+                        }
+                    }
+                    &.col-fluid {
+                        justify-content: left;
+                        .mat-form-field {
+                            width: 24%;
+                            margin-right: 25px;
+                        }
+                    }
+                }
+            }
+            .time-of-day {
+                ul {
+                    li {
+                        display: block;
+                        h6 {
+                            font-weight: bold;
+                        }
+                        .checks {
+                            display: flex;
+                            justify-content: left;
+                            .mat-checkbox {
+                                margin-right: 12px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

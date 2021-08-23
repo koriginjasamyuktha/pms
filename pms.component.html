@@ -1,0 +1,675 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>PMS Application</mat-card-title>
+
+    </mat-card-header>
+    <mat-card-content>
+
+        <form name="PMSForm" [formGroup]="pmsForm" novalidate>
+            <mat-tab-group dynamicHeight #tabGroup>
+                <!-- IDENTIFIER/LOCATION INFORMATION -->
+                <mat-tab label="Identifier/Location Information">
+                    <div class="row">
+                        <div class="col-4 block">
+                            <div class="wrapper">
+                                <h4>Details</h4>
+                                <ul>
+                                    <li>
+                                        <mat-form-field appearance="fill">
+                                            <mat-label>Identifier</mat-label>
+                                            <input matInput formControlName="identifier">
+                                        </mat-form-field>
+                                    </li>
+                                    <li>
+                                        <mat-form-field appearance="fill">
+                                            <mat-label>System <span class="red">*</span></mat-label>
+                                            <input matInput formControlName="system">
+                                        </mat-form-field>
+                                    </li>
+                                    <li>
+                                        <mat-form-field appearance="fill">
+                                            <mat-label>NCPDP <span class="red">*</span></mat-label>
+                                            <input matInput formControlName="ncpdp">
+                                        </mat-form-field>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </mat-tab>
+                <!-- IDENTIFIER/LOCATION INFORMATION -->
+                <!-- Patient Information -->
+                <mat-tab label="Patient Information">
+                    <div class="row">
+                        <div class="col-6 block">
+                            <div class="wrapper">
+                                <h4>Basic Information</h4>
+                                <ul>
+                                    <li class="col3">
+                                        <mat-form-field appearance="fill">
+                                            <mat-label>ID <span class="red">*</span></mat-label>
+                                            <input matInput formControlName="patient_id">
+                                        </mat-form-field>
+
+                                        <mat-form-field appearance="fill">
+                                            <mat-label>Prefix</mat-label>
+                                            <input matInput formControlName="patient_prefix">
+                                        </mat-form-field>
+
+                                        <mat-form-field appearance="fill">
+                                            <mat-label>Suffix</mat-label>
+                                            <input matInput formControlName="patient_suffix">
+                                        </mat-form-field>
+                                    </li>
+                                    <li class="col2">
+                                        <mat-form-field appearance="fill">
+                                            <mat-label>First Name <span class="red">*</span></mat-label>
+                                            <input matInput formControlName="patient_firstname">
+                                        </mat-form-field>
+
+                                        <mat-form-field appearance="fill">
+                                            <mat-label>Middle Name</mat-label>
+                                            <input matInput formControlName="patient_middlename">
+                                        </mat-form-field>
+                                    </li>
+                                    <li class="col2">
+                                        <mat-form-field appearance="fill">
+                                            <mat-label>Last Name <span class="red">*</span></mat-label>
+                                            <input matInput formControlName="patient_lastname">
+                                        </mat-form-field>
+
+                                        <mat-form-field appearance="fill" class="calendar-control">
+                                            <mat-label>Date of Birth</mat-label>
+                                            <input matInput [owlDateTime]="dob" formControlName="dob">
+                                            <owl-date-time [pickerType]="'calendar'" #dob></owl-date-time>
+                                            <span [owlDateTimeTrigger]="dob" class="dateTimeIcon material-icons">
+                                                calendar_today
+                                            </span>
+                                        </mat-form-field>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="col-6 block">
+                            <div class="wrapper">
+                                <h4>Contact Information</h4>
+                                <ul>
+                                    <li>
+                                        <mat-form-field appearance="fill">
+                                            <mat-label>System</mat-label>
+                                            <input matInput formControlName="patient_system">
+                                        </mat-form-field>
+                                    </li>
+                                    <li>
+                                        <mat-form-field appearance="fill">
+                                            <mat-label>Use</mat-label>
+                                            <input matInput formControlName="patient_use">
+                                        </mat-form-field>
+                                    </li>
+                                    <li>
+                                        <mat-form-field appearance="fill">
+                                            <mat-label>Value</mat-label>
+                                            <input matInput formControlName="patient_phone">
+                                        </mat-form-field>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="col-6 block">
+                            <div class="wrapper">
+                                <h4>Address Information</h4>
+                                <ul>
+                                    <li>
+                                        <mat-form-field appearance="fill">
+                                            <mat-label>Address Line 1 <span class="red">*</span></mat-label>
+                                            <input matInput formControlName="patient_address">
+                                        </mat-form-field>
+                                    </li>
+                                    <li>
+                                        <mat-form-field appearance="fill">
+                                            <mat-label>Address Line 2 <span class="red">*</span></mat-label>
+                                            <input matInput formControlName="patient_address2">
+                                        </mat-form-field>
+                                    </li>
+                                    <li class="col3">
+                                        <mat-form-field appearance="fill">
+                                            <mat-label>City <span class="red">*</span></mat-label>
+                                            <input matInput formControlName="patient_city">
+                                        </mat-form-field>
+
+                                        <mat-form-field appearance="fill">
+                                            <mat-label>State <span class="red">*</span></mat-label>
+                                            <input matInput formControlName="patient_state">
+                                        </mat-form-field>
+
+                                        <mat-form-field appearance="fill">
+                                            <mat-label>Postal Code <span class="red">*</span></mat-label>
+                                            <input matInput formControlName="patient_zip">
+                                        </mat-form-field>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </mat-tab>
+                <!-- Patient Information -->
+                <!-- Pharmacist  Information -->
+                <mat-tab label="Pharmacist Information">
+                    <div class="row">
+                        <div class="col-8 block">
+                            <div class="wrapper">
+                                <h4>Details</h4>
+                                <ul>
+                                    <li class="col2">
+                                        <mat-form-field appearance="fill">
+                                            <mat-label>Pharmacist Prefix</mat-label>
+                                            <input matInput formControlName="pharmacist_prefix">
+                                        </mat-form-field>
+
+                                        <mat-form-field appearance="fill">
+                                            <mat-label>Pharmacist suffix</mat-label>
+                                            <input matInput formControlName="pharmacist_suffix">
+                                        </mat-form-field>
+                                    </li>
+                                    <li class="col3">
+                                        <mat-form-field appearance="fill">
+                                            <mat-label>First Name <span class="red">*</span></mat-label>
+                                            <input matInput formControlName="pharmacist_first_name">
+                                        </mat-form-field>
+
+                                        <mat-form-field appearance="fill">
+                                            <mat-label>Middle Name</mat-label>
+                                            <input matInput formControlName="pharmacist_middle_name">
+                                        </mat-form-field>
+
+                                        <mat-form-field appearance="fill">
+                                            <mat-label>Last Name <span class="red">*</span></mat-label>
+                                            <input matInput formControlName="pharmacist_last_name">
+                                        </mat-form-field>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </mat-tab>
+                <!-- Pharmacist  Information -->
+                <!-- Medication Order -->
+                <mat-tab label="Medication Order">
+                    <div class="row">
+                        <div class="col-12 block">
+                            <div class="wrapper">
+                                <h4>Details</h4>
+                                <ul>
+                                    <li class="col-fluid">
+                                        <mat-form-field appearance="fill">
+                                            <mat-label>Manifest ID <span class="red">*</span></mat-label>
+                                            <input matInput formControlName="medication_dispense_manifestId">
+                                        </mat-form-field>
+
+                                        <mat-form-field appearance="fill">
+                                            <mat-label>Total Synced RX </mat-label>
+                                            <input matInput formControlName="medication_dispense_totalSyncedRX">
+                                        </mat-form-field>
+
+                                        <mat-form-field appearance="fill" class="calendar-control">
+                                            <mat-label>Date Need By</mat-label>
+                                            <input matInput [owlDateTime]="dnb" formControlName="dnb">
+                                            <owl-date-time #dnb></owl-date-time>
+                                            <span [owlDateTimeTrigger]="dnb" class="dateTimeIcon material-icons">
+                                                calendar_today
+                                            </span>
+                                        </mat-form-field>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-12 block">
+                            <!-- Line Details -->
+                            <div class="wrapper">
+                                <h4>Lines
+                                    <button mat-flat-button color="accent" class="tertiary-button condensed-btn">Add New
+                                        Line</button>
+                                </h4>
+                                <mat-accordion>
+                                    <mat-expansion-panel (opened)="panelOpenState = true"
+                                        (closed)="panelOpenState = false">
+                                        <mat-expansion-panel-header>
+                                            <mat-panel-title>
+                                                Line 1 Details
+                                            </mat-panel-title>
+                                        </mat-expansion-panel-header>
+                                        <div class="line-details">
+                                            <ul>
+                                                <li class="col3">
+                                                    <mat-form-field appearance="fill">
+                                                        <mat-label>Authorizing Prescription <span class="red">*</span>
+                                                        </mat-label>
+                                                        <input matInput formControlName="authorizingPrescription">
+                                                    </mat-form-field>
+
+                                                    <mat-form-field appearance="fill" class="calendar-control">
+                                                        <mat-label>Author On <span class="red">*</span></mat-label>
+                                                        <input matInput [owlDateTime]="authorOn"
+                                                            formControlName="authorOn">
+                                                        <owl-date-time #authorOn></owl-date-time>
+                                                        <span [owlDateTimeTrigger]="authorOn"
+                                                            class="dateTimeIcon material-icons">
+                                                            calendar_today
+                                                        </span>
+                                                    </mat-form-field>
+
+                                                    <mat-form-field appearance="fill" class="calendar-control">
+                                                        <mat-label>Validity Period End <span class="red">*</span>
+                                                        </mat-label>
+                                                        <input matInput [owlDateTime]="validityperiod"
+                                                            formControlName="validityperiod">
+                                                        <owl-date-time #validityperiod></owl-date-time>
+                                                        <span [owlDateTimeTrigger]="validityperiod"
+                                                            class="dateTimeIcon material-icons">
+                                                            calendar_today
+                                                        </span>
+                                                    </mat-form-field>
+                                                </li>
+                                            </ul>
+                                            <div class="row">
+                                                <div class="col-6 block">
+                                                    <div class="wrapper">
+                                                        <h4>Requestor Basic Information</h4>
+                                                        <ul>
+                                                            <li class="col2">
+                                                                <mat-form-field appearance="fill">
+                                                                    <mat-label>Prefix</mat-label>
+                                                                    <input matInput formControlName="requestor_prefix">
+                                                                </mat-form-field>
+
+                                                                <mat-form-field appearance="fill">
+                                                                    <mat-label>Suffix</mat-label>
+                                                                    <input matInput formControlName="requestor_suffix">
+                                                                </mat-form-field>
+                                                            </li>
+                                                            <li class="col2">
+                                                                <mat-form-field appearance="fill">
+                                                                    <mat-label>First Name
+                                                                    </mat-label>
+                                                                    <input matInput formControlName="requestor_first_name">
+                                                                </mat-form-field>
+
+                                                                <mat-form-field appearance="fill">
+                                                                    <mat-label>Middle Name</mat-label>
+                                                                    <input matInput formControlName="requestor_middle_name">
+                                                                </mat-form-field>
+                                                            </li>
+                                                            <li class="col2">
+                                                                <mat-form-field appearance="fill">
+                                                                    <mat-label>Last Name
+                                                                    </mat-label>
+                                                                    <input matInput formControlName="requestor_last_name">
+                                                                </mat-form-field>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-6 block">
+                                                    <div class="wrapper">
+                                                        <h4>Requestor Address Details</h4>
+                                                        <ul>
+                                                            <li>
+                                                                <mat-form-field appearance="fill">
+                                                                    <mat-label>Address1</mat-label>
+                                                                    <input matInput formControlName="requestor_line_1">
+                                                                </mat-form-field>
+                                                            </li>
+                                                            <li>
+                                                                <mat-form-field appearance="fill">
+                                                                    <mat-label>Address2</mat-label>
+                                                                    <input matInput formControlName="requestor_line_2">
+                                                                </mat-form-field>
+                                                            </li>
+                                                            <li class="col3">
+                                                                <mat-form-field appearance="fill">
+                                                                    <mat-label>City
+                                                                    </mat-label>
+                                                                    <input matInput formControlName="requestor_city">
+                                                                </mat-form-field>
+
+                                                                <mat-form-field appearance="fill">
+                                                                    <mat-label>State</mat-label>
+                                                                    <input matInput formControlName="requestor_state">
+                                                                </mat-form-field>
+
+                                                                <mat-form-field appearance="fill">
+                                                                    <mat-label>Postal Code</mat-label>
+                                                                    <input matInput formControlName="requestor_postalCode">
+                                                                </mat-form-field>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-6 block">
+                                                    <div class="wrapper">
+                                                        <h4>Requestor Contact Information</h4>
+                                                        <ul>
+                                                            <li class="col3">
+                                                                <mat-form-field appearance="fill">
+                                                                    <mat-label>System</mat-label>
+                                                                    <input matInput formControlName="requestor_home_system">
+                                                                </mat-form-field>
+
+                                                                <mat-form-field appearance="fill">
+                                                                    <mat-label>Use</mat-label>
+                                                                    <input matInput formControlName="requestor_home_use">
+                                                                </mat-form-field>
+
+                                                                <mat-form-field appearance="fill">
+                                                                    <mat-label>Value
+                                                                    </mat-label>
+                                                                    <input matInput formControlName="requestor_home_number">
+                                                                </mat-form-field>
+
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-6 block">
+                                                    <div class="wrapper">
+                                                        <h4>Medication Codeable Concept</h4>
+                                                        <ul>
+                                                            <li class="col2">
+                                                                <mat-form-field appearance="fill">
+                                                                    <mat-label>System</mat-label>
+                                                                    <input matInput formControlName="medicationCodeableConcept_system">
+                                                                </mat-form-field>
+
+                                                                <mat-form-field appearance="fill">
+                                                                    <mat-label>Use</mat-label>
+                                                                    <input matInput formControlName="medicationCodeableConcept_code">
+                                                                </mat-form-field>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <!-- MEDICATION DISPENSE INFORMATION -->
+                                                <div class="col-12 block">
+                                                    <div class="wrapper">
+                                                        <h4>Medication Dispense Information</h4>
+                                                        <ul>
+                                                            <li class="col4">
+                                                                <mat-form-field appearance="fill">
+                                                                    <mat-label>Dispense Line ID</mat-label>
+                                                                    <input matInput formControlName="mDispanse_dispenseLineid">
+                                                                </mat-form-field>
+
+                                                                <mat-form-field appearance="fill" class="calendar-control">
+                                                                    <mat-label>Original Fill Date <span class="red">*</span>
+                                                                    </mat-label>
+                                                                    <input matInput [owlDateTime]="ofd"
+                                                                        formControlName="ofd">
+                                                                    <owl-date-time #ofd></owl-date-time>
+                                                                    <span [owlDateTimeTrigger]="ofd"
+                                                                        class="dateTimeIcon material-icons">
+                                                                        calendar_today
+                                                                    </span>
+                                                                </mat-form-field>
+
+                                                                <mat-form-field appearance="fill" class="calendar-control">
+                                                                    <mat-label>Dispense Start Date <span class="red">*</span>
+                                                                    </mat-label>
+                                                                    <input matInput [owlDateTime]="dsd"
+                                                                        formControlName="dsd">
+                                                                    <owl-date-time #dsd></owl-date-time>
+                                                                    <span [owlDateTimeTrigger]="dsd"
+                                                                        class="dateTimeIcon material-icons">
+                                                                        calendar_today
+                                                                    </span>
+                                                                </mat-form-field>
+
+                                                                <mat-form-field appearance="fill">
+                                                                    <mat-label>Dispense Refill Number</mat-label>
+                                                                    <input matInput formControlName="mDispanse_dispenseRefillNumber">
+                                                                </mat-form-field>
+                                                            </li>
+                                                            <li class="col3">
+                                                                <mat-form-field appearance="fill">
+                                                                    <mat-label>Refills Remaining</mat-label>
+                                                                    <input matInput formControlName="mDispanse_refillsRemaining">
+                                                                </mat-form-field>
+
+                                                                <mat-form-field appearance="fill">
+                                                                    <mat-label>Order Type <span class="red">*</span>
+                                                                    </mat-label>
+                                                                    <input matInput formControlName="mDispanse_orderType">
+                                                                </mat-form-field>
+
+                                                                <mat-form-field appearance="fill">
+                                                                    <mat-label>Refill Message</mat-label>
+                                                                    <input matInput formControlName="mDispanse_refillMessage">
+                                                                </mat-form-field>
+                                                            </li>
+                                                            <li class="col4">
+                                                                <mat-form-field appearance="fill">
+                                                                    <mat-label>RX Sync Seq <span class="red">*</span>
+                                                                    </mat-label>
+                                                                    <input matInput formControlName="mDispanse_RXSyncSeq">
+                                                                </mat-form-field>
+
+                                                                <mat-form-field appearance="fill">
+                                                                    <mat-label>Days Supply <span class="red">*</span>
+                                                                    </mat-label>
+                                                                    <input matInput  formControlName="mDispanse_daysSupply">
+                                                                </mat-form-field>
+
+                                                                <mat-form-field appearance="fill">
+                                                                    <mat-label>Quantity <span class="red">*</span>
+                                                                    </mat-label>
+                                                                    <input matInput  formControlName="mDispanse_quantity">
+                                                                </mat-form-field>
+
+                                                                <mat-form-field appearance="fill">
+                                                                    <mat-label>substitution</mat-label>
+                                                                    <input matInput  formControlName="mDispanse_wasSubstituted">
+                                                                </mat-form-field>
+                                                            </li>
+                                                            <li>
+                                                                <mat-form-field appearance="fill">
+                                                                    <mat-label>sig <span class="red">*</span>
+                                                                    </mat-label>
+                                                                    <textarea matInput placeholder="..."  formControlName="mDispanse_sig"></textarea>
+                                                                </mat-form-field>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 block">
+                                                    <div class="wrapper">
+                                                        <h4>Medication Codeable Concept</h4>
+                                                        <ul>
+                                                            <li class="col2">
+                                                                <mat-form-field appearance="fill">
+                                                                    <mat-label>System</mat-label>
+                                                                    <input matInput  formControlName="mDispanse_concept_system">
+                                                                </mat-form-field>
+
+                                                                <mat-form-field appearance="fill">
+                                                                    <mat-label>Use</mat-label>
+                                                                    <input matInput  formControlName="mDispanse_concept_code">
+                                                                </mat-form-field>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <!-- MEDICATION DISPENSE INFORMATION -->
+
+                                                <!-- Warning Details -->
+                                                <div class="col-12 block">
+                                                    <div class="wrapper">
+                                                        <h4>Warning Details
+                                                            <button mat-flat-button color="accent"
+                                                                class="tertiary-button condensed-btn">Add Warning
+                                                            </button>
+                                                        </h4>
+                                                        <ul>
+                                                            <li class="col-fluid">
+                                                                <mat-form-field appearance="fill">
+                                                                    <mat-label>Warning 1 <span class="red">*</span>
+                                                                    </mat-label>
+                                                                    <input matInput  formControlName="warning">
+                                                                </mat-form-field>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <!-- Warning Details -->
+
+                                                <!-- Dosage Details -->
+                                                <div class="col-12 block">
+                                                    <div class="wrapper">
+                                                        <h4>Dosage Instructions
+                                                            <button mat-flat-button color="accent"
+                                                                class="tertiary-button condensed-btn">Add Dosage
+                                                            </button>
+                                                        </h4>
+                                                        <div class="col-12 block">
+                                                            <div class="wrapper dosage-details">
+                                                                <h4>Dose Quantity</h4>
+                                                                <ul>
+                                                                    <li class="col3">
+                                                                        <mat-form-field appearance="fill">
+                                                                            <mat-label>value <span class="red">*</span>
+                                                                            </mat-label>
+                                                                            <input matInput formControlName="dosage_instructions_dose_quantity_value">
+                                                                        </mat-form-field>
+
+                                                                        <mat-form-field appearance="fill">
+                                                                            <mat-label>Unit <span class="red">*</span>
+                                                                            </mat-label>
+                                                                            <input matInput formControlName="dosage_instructions_dose_quantity_unit">
+                                                                        </mat-form-field>
+
+                                                                        <mat-form-field appearance="fill">
+                                                                            <mat-label>As Needed Boolean</mat-label>
+                                                                            <input matInput formControlName="dosage_instructions_asNeededBoolean">
+                                                                        </mat-form-field>
+                                                                    </li>
+                                                                </ul>
+                                                                <!-- Timings -->
+                                                                <mat-accordion>
+                                                                    <mat-expansion-panel
+                                                                        (opened)="panelOpenState = true"
+                                                                        (closed)="panelOpenState = false">
+                                                                        <mat-expansion-panel-header>
+                                                                            <mat-panel-title>
+                                                                                Timing Details
+                                                                            </mat-panel-title>
+                                                                        </mat-expansion-panel-header>
+                                                                        <div class="col-12 block">
+                                                                            <div class="wrapper">
+                                                                                <h4>Timing Details 1</h4>
+                                                                                <ul>
+                                                                                    <li class="col4">
+                                                                                        <mat-form-field
+                                                                                            appearance="fill">
+                                                                                            <mat-label>Frequency <span
+                                                                                                    class="red">*</span>
+                                                                                            </mat-label>
+                                                                                            <input matInput formControlName="timing_frequency">
+                                                                                        </mat-form-field>
+
+                                                                                        <mat-form-field
+                                                                                            appearance="fill">
+                                                                                            <mat-label>Period <span
+                                                                                                    class="red">*</span>
+                                                                                            </mat-label>
+                                                                                            <input matInput formControlName="timing_period">
+                                                                                        </mat-form-field>
+
+                                                                                        <mat-form-field
+                                                                                            appearance="fill">
+                                                                                            <mat-label>Period Unit <span
+                                                                                                    class="red">*</span>
+                                                                                            </mat-label>
+                                                                                            <input matInput formControlName="timing_periodUnit">
+                                                                                        </mat-form-field>
+
+                                                                                        <mat-form-field
+                                                                                            appearance="fill">
+                                                                                            <mat-label>count <span
+                                                                                                    class="red">*</span>
+                                                                                            </mat-label>
+                                                                                            <input matInput formControlName="timing_count">
+                                                                                        </mat-form-field>
+                                                                                    </li>
+                                                                                </ul>
+                                                                                <div class="time-of-day">
+                                                                                    <h5>Time of Day</h5>
+                                                                                    <ul>
+                                                                                        <li>
+                                                                                            <h6>When:</h6>
+                                                                                            <div class="checks">
+                                                                                                <mat-checkbox>Morning
+                                                                                                </mat-checkbox>
+                                                                                                <mat-checkbox>Noon
+                                                                                                </mat-checkbox>
+                                                                                                <mat-checkbox>Evening
+                                                                                                </mat-checkbox>
+                                                                                                <mat-checkbox>Bedtime
+                                                                                                </mat-checkbox>
+                                                                                            </div>
+                                                                                        </li>
+                                                                                        <li>
+                                                                                            <h6>Day Of Week:</h6>
+                                                                                            <div class="checks">
+                                                                                                <mat-checkbox>Mon
+                                                                                                </mat-checkbox>
+                                                                                                <mat-checkbox>Tue
+                                                                                                </mat-checkbox>
+                                                                                                <mat-checkbox>Wed
+                                                                                                </mat-checkbox>
+                                                                                                <mat-checkbox>Thu
+                                                                                                </mat-checkbox>
+                                                                                                <mat-checkbox>Fri
+                                                                                                </mat-checkbox>
+                                                                                                <mat-checkbox>Sat
+                                                                                                </mat-checkbox>
+                                                                                                <mat-checkbox>Sun
+                                                                                                </mat-checkbox>
+                                                                                            </div>
+                                                                                        </li>
+                                                                                    </ul>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </mat-expansion-panel>
+                                                                </mat-accordion>
+                                                                <!-- Timings -->
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- Dosage Details -->
+                                            </div>
+
+                                        </div>
+                                    </mat-expansion-panel>
+                                </mat-accordion>
+
+                            </div>
+
+                            <!-- Line Details -->
+                        </div>
+                    </div>
+                </mat-tab>
+                <!-- Medication Order -->
+            </mat-tab-group>
+        </form>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-raised-button color="accent">Reset</button>
+        <button mat-raised-button color="primary">Submit</button>
+    </mat-card-actions>
+</mat-card>
